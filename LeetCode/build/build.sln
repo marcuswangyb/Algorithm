@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeetCode", "LeetCode\LeetCode.vcxproj", "{809EED21-62BD-47E8-AFA0-7A00983A1F1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ValidPalindrome", "ValidPalindrome\ValidPalindrome.vcxproj", "{3E953D15-BF5D-4E67-A360-C939856617F3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ValidParentheses", "ValidParentheses\ValidParentheses.vcxproj", "{1A027DED-235D-4FCF-96F1-795A644C7CC7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinaryTreeLevelOrderTraversal", "BinaryTreeLevelOrderTraversal\BinaryTreeLevelOrderTraversal.vcxproj", "{71C50642-DB3B-4FB7-9883-9CC4CEFDB4B5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CountAndSay", "CountAndSay\CountAndSay.vcxproj", "{EFAC34F7-94A3-4B9E-9022-29B8ED625D19}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PathSum", "PathSum\PathSum.vcxproj", "{95BBCA75-5847-4626-AA12-DC548DA18FC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{809EED21-62BD-47E8-AFA0-7A00983A1F1A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{809EED21-62BD-47E8-AFA0-7A00983A1F1A}.Debug|Win32.Build.0 = Debug|Win32
+		{809EED21-62BD-47E8-AFA0-7A00983A1F1A}.Release|Win32.ActiveCfg = Release|Win32
+		{809EED21-62BD-47E8-AFA0-7A00983A1F1A}.Release|Win32.Build.0 = Release|Win32
+		{3E953D15-BF5D-4E67-A360-C939856617F3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3E953D15-BF5D-4E67-A360-C939856617F3}.Debug|Win32.Build.0 = Debug|Win32
+		{3E953D15-BF5D-4E67-A360-C939856617F3}.Release|Win32.ActiveCfg = Release|Win32
+		{3E953D15-BF5D-4E67-A360-C939856617F3}.Release|Win32.Build.0 = Release|Win32
+		{1A027DED-235D-4FCF-96F1-795A644C7CC7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1A027DED-235D-4FCF-96F1-795A644C7CC7}.Debug|Win32.Build.0 = Debug|Win32
+		{1A027DED-235D-4FCF-96F1-795A644C7CC7}.Release|Win32.ActiveCfg = Release|Win32
+		{1A027DED-235D-4FCF-96F1-795A644C7CC7}.Release|Win32.Build.0 = Release|Win32
+		{71C50642-DB3B-4FB7-9883-9CC4CEFDB4B5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{71C50642-DB3B-4FB7-9883-9CC4CEFDB4B5}.Debug|Win32.Build.0 = Debug|Win32
+		{71C50642-DB3B-4FB7-9883-9CC4CEFDB4B5}.Release|Win32.ActiveCfg = Release|Win32
+		{71C50642-DB3B-4FB7-9883-9CC4CEFDB4B5}.Release|Win32.Build.0 = Release|Win32
+		{EFAC34F7-94A3-4B9E-9022-29B8ED625D19}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EFAC34F7-94A3-4B9E-9022-29B8ED625D19}.Debug|Win32.Build.0 = Debug|Win32
+		{EFAC34F7-94A3-4B9E-9022-29B8ED625D19}.Release|Win32.ActiveCfg = Release|Win32
+		{EFAC34F7-94A3-4B9E-9022-29B8ED625D19}.Release|Win32.Build.0 = Release|Win32
+		{95BBCA75-5847-4626-AA12-DC548DA18FC7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{95BBCA75-5847-4626-AA12-DC548DA18FC7}.Debug|Win32.Build.0 = Debug|Win32
+		{95BBCA75-5847-4626-AA12-DC548DA18FC7}.Release|Win32.ActiveCfg = Release|Win32
+		{95BBCA75-5847-4626-AA12-DC548DA18FC7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
