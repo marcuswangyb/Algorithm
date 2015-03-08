@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include <string>
 #include <stdlib.h>
+
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -46,12 +48,26 @@ void FloatTest()
         printf("no\n");
 }
 
+inline bool getBit(int num,int i){
+    return num&(1<<i);
+}
+
+inline int clearBits(int num,int i){
+    int mask = (1<<i)-1;
+    return mask&num;
+}
+
+void BitTest(){
+    //for(int i = 8-1;i >= 0;i --)
+        cout<<getBit(8,-1)<<" ";
+}
 
 int main(int argc,char** argv)
 {
     //ConstTest();
     //PointTest();
-    FloatTest();
+    //FloatTest();
+    BitTest();
 
     printf("success\n");
 }

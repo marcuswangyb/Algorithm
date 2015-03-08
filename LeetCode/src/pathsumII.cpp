@@ -137,36 +137,35 @@ void PreOrderTraversal(TreeNode * root){
  */
 class Solution {
 public:
-    bool hasPathSum(TreeNode *root, int sum) {
-        if(root == NULL) return false;
-        stack<pair<TreeNode *,int>> s;
-        int curSum = 0;
+    vector<vector<int> > pathSum(TreeNode *root, int sum) {
+        vector<vector<int>> res;
+        if(root == NULL) return res;
+        vector<int> path;
+        path.push_back(root->val);
+        pathSumRecursively(root,sum,root->val,path,res);
+        return res;
+    }
+private:
+    void pathSumRecursively(TreeNode *root,const int expectSum,int curSum,vector<int>& path,vector<vector<int>>& res){
+        if(root == NULL) return ;
         TreeNode *p = root;
-        while(!s.empty() || p != NULL){
-            while(p != NULL){
-                s.push(make_pair(p,2));
-                curSum += p->val;
-                p = p->left;
-            }
-            if(!s.empty()){
-                pair<TreeNode*,int> cur = s.top();
-                p = cur.first;
-                if(p != NULL && p->left == NULL && p->right == NULL){
-                    if(curSum == sum) return true;
-                }
-                if(cur.second == 2){
-                    s.top().second = 1;
-                    p = p->right;
-                }
-                else{
-                    curSum -= cur.first->val;
-                    s.pop();
-                    p = NULL;
-                }
+        if(p->left == NULL && p->right == NULL){
+            if(expectSum == curSum){
+                res.push_back(path);
             }
         }
-        return false;
-    } 
+
+        if(p->left != NULL){
+            path.push_back(p->left->val);
+            pathSumRecursively(p->left,expectSum,curSum + p->left->val,path,res);
+            path.pop_back();
+        }
+        if(p->right != NULL){
+            path.push_back(p->right->val);
+            pathSumRecursively(p->right,expectSum,curSum + p->right->val,path,res);
+            path.pop_back();
+        }
+    }
 };
 
 int main(int argc,char** argv)
@@ -188,6 +187,7 @@ int main(int argc,char** argv)
     cases.push_back("{1,2,3,#,#,4,#,#,5}");
     cases.push_back("{1,2,3,6,8,5,#,7,#,#,#,4}");*/
     cases.push_back("{5,4,11,7,#,#,#,#,8,8,#,1,#,#,4,#,1,#,#}");
+    cases.push_back("{5,4,11,7,#,#,2,#,#,#,8,13,#,#,4,5,#,#,1,#,#}");
     cases.push_back("{#}");
     cases.push_back("{22}");
 
@@ -198,9 +198,20 @@ int main(int argc,char** argv)
         bool ret = MakeBinaryTreePre(cases[i],tree);
         printf("case \"%s\":%d\n",cases[i].c_str(),ret);
         if(ret){
-            PreOrderTraversal(tree);
+            //PreOrderTraversal(tree);
             cout<<endl;
-            cout<<so.hasPathSum(tree,22)<<endl;
+            vector<vector<int>> res;
+            res = so.pathSum(tree,22);
+
+            for(int i = 0;i < res.size();i ++)
+            {
+                for(int j = 0;j < res[i].size(); j++)
+                {
+                    if(j != 0) cout<<"-"; 
+                    cout<<res[i][j];
+                }
+                cout<<endl;
+            }
         }
         cout<<endl;
 
