@@ -283,7 +283,7 @@ void ClassSizeTest()
     cout<<sizeof(NULL)<<endl;
 }
 
-	
+    
 int main(int argc,char** argv)
 {
     //StructSizeTest();

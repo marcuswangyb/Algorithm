@@ -53,7 +53,7 @@ int main(int argc,char** argv)
     StringStringMap coll2(ignorecase);
     fillAndPrint(coll2);
      
-	printf("success!\n");
+    printf("success!\n");
 }
 
 void fillAndPrint(StringStringMap& coll)

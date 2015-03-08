@@ -30,27 +30,27 @@ bool DeleteOneFromList(ListNode *&list,ListNode *toDelete)
         }
 
         if(list == toDelete)
-		{
-			delete toDelete;
-			list = toDelete = NULL;
-		}
-		else if(pScan->pNext == toDelete)
-		{
+        {
+            delete toDelete;
+            list = toDelete = NULL;
+        }
+        else if(pScan->pNext == toDelete)
+        {
             pScan->pNext = NULL;
-			delete toDelete;
-			toDelete = NULL;
-		}
-		else if(pScan->pNext == NULL)
-			return false;
+            delete toDelete;
+            toDelete = NULL;
+        }
+        else if(pScan->pNext == NULL)
+            return false;
     }
     else
     {
-		ListNode *pNext = toDelete->pNext;
-		toDelete->value = pNext->value;
-		toDelete->pNext = pNext->pNext;
+        ListNode *pNext = toDelete->pNext;
+        toDelete->value = pNext->value;
+        toDelete->pNext = pNext->pNext;
 
-		delete pNext;
-		pNext = NULL;
+        delete pNext;
+        pNext = NULL;
     }
 
     return true;
@@ -64,14 +64,14 @@ void MakeLinkedList(int *input,int input_len,ListNode *output)
 {
     ListNode *cur;
     cur = output;
-	for(int i = 0;i < input_len;i++)
-	{
+    for(int i = 0;i < input_len;i++)
+    {
         cur->value = input[i];
-		if(i != input_len - 1)
-			cur->pNext = new ListNode();
-		else
-			cur->pNext = NULL;
-		cur = cur->pNext;
+        if(i != input_len - 1)
+            cur->pNext = new ListNode();
+        else
+            cur->pNext = NULL;
+        cur = cur->pNext;
     }
 }
 
@@ -81,8 +81,8 @@ void PrintLinkedList(ListNode *output)
     while(cur != NULL)
     {
         printf("%d",cur->value);
-		if(cur->pNext != NULL)
-			printf("-");
+        if(cur->pNext != NULL)
+            printf("-");
         cur = cur->pNext;
     }
     printf("\n");
@@ -90,46 +90,46 @@ void PrintLinkedList(ListNode *output)
 
 string LinkedListToString(ListNode *output)
 {
-	string res = "";
+    string res = "";
     ListNode *cur = output;
     while(cur != NULL)
     {
-		char tmp[64];
-		if(cur->pNext != NULL)
-			sprintf(tmp,"%d-",cur->value);
-		else
-			sprintf(tmp,"%d",cur->value);
+        char tmp[64];
+        if(cur->pNext != NULL)
+            sprintf(tmp,"%d-",cur->value);
+        else
+            sprintf(tmp,"%d",cur->value);
         cur = cur->pNext;
-		res += tmp;
+        res += tmp;
     }
 
-	return res;
+    return res;
 }
 
 void DestroyLinkedList(ListNode *&list)
 {
-	if(list == NULL)
-		return;
+    if(list == NULL)
+        return;
 
-	ListNode *cur = list;
-	ListNode *next;
-	while(cur != NULL)
-	{
-		next = cur->pNext;
-		delete cur;
-		cur = next;
-	}
+    ListNode *cur = list;
+    ListNode *next;
+    while(cur != NULL)
+    {
+        next = cur->pNext;
+        delete cur;
+        cur = next;
+    }
 }
 
 void DevTest()
 {
-	ListNode *list = new ListNode();
+    ListNode *list = new ListNode();
     int input[] = {2,4,5,1,8,4};
     int len = 6;
     MakeLinkedList(input,len,list);
 
-	ListNode *toDelete = list->pNext->pNext;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list->pNext->pNext;
+    DeleteOneFromList(list,toDelete);
 
     PrintLinkedList(list);
 }
@@ -150,102 +150,102 @@ protected:
         DestroyLinkedList(list);
     }
 
-	ListNode *list;
+    ListNode *list;
 };
 
 TEST_F(LinkedList_Test, Common1)
 {
-	int input[] = {2,4,5,1,8,4};
-	MakeLinkedList(input,6,list);
+    int input[] = {2,4,5,1,8,4};
+    MakeLinkedList(input,6,list);
 
-	ListNode *toDelete = list->pNext->pNext;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list->pNext->pNext;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("2-4-1-8-4", strList.c_str());
+    EXPECT_STREQ("2-4-1-8-4", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Common2)
 {
-	int input[] = {4,5,3,12,8};
-	MakeLinkedList(input,5,list);
+    int input[] = {4,5,3,12,8};
+    MakeLinkedList(input,5,list);
 
-	ListNode *toDelete = list;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("5-3-12-8", strList.c_str());
+    EXPECT_STREQ("5-3-12-8", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Common3)
 {
-	int input[] = {4,5,3,12,8};
-	MakeLinkedList(input,5,list);
+    int input[] = {4,5,3,12,8};
+    MakeLinkedList(input,5,list);
 
-	ListNode *toDelete = list->pNext->pNext->pNext->pNext;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list->pNext->pNext->pNext->pNext;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("4-5-3-12", strList.c_str());
+    EXPECT_STREQ("4-5-3-12", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Boundary1)
 {
-	int input[] = {4};
-	MakeLinkedList(input,1,list);
+    int input[] = {4};
+    MakeLinkedList(input,1,list);
 
-	ListNode *toDelete = list;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("", strList.c_str());
+    EXPECT_STREQ("", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Boundary2)
 {
-	int input[] = {4,5};
-	MakeLinkedList(input,2,list);
+    int input[] = {4,5};
+    MakeLinkedList(input,2,list);
 
-	ListNode *toDelete = list;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("5", strList.c_str());
+    EXPECT_STREQ("5", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Boundary3)
 {
-	int input[] = {4,5};
-	MakeLinkedList(input,2,list);
+    int input[] = {4,5};
+    MakeLinkedList(input,2,list);
 
-	ListNode *toDelete = list->pNext;
-	DeleteOneFromList(list,toDelete);
+    ListNode *toDelete = list->pNext;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("4", strList.c_str());
+    EXPECT_STREQ("4", strList.c_str());
 }
 
 TEST_F(LinkedList_Test, Error)
 {
-	list = NULL;
-	ListNode *toDelete = NULL;
-	DeleteOneFromList(list,toDelete);
+    list = NULL;
+    ListNode *toDelete = NULL;
+    DeleteOneFromList(list,toDelete);
 
     string strList = LinkedListToString(list);
 
-	EXPECT_STREQ("", strList.c_str());
+    EXPECT_STREQ("", strList.c_str());
 }
 
 int main(int argc,char** argv)
 {
-	//DevTest();
-	testing::InitGoogleTest(&argc,argv);
+    //DevTest();
+    testing::InitGoogleTest(&argc,argv);
     RUN_ALL_TESTS();
     
     printf("success!\n");

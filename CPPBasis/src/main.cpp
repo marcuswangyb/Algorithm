@@ -14,36 +14,36 @@ using namespace std;
 
 void iterdemo()
 {
-	int iarray[ARRAYSIZE] = {1,23,4,54,32,6,8,2,6};
-	int* ip = find(iarray, iarray + ARRAYSIZE, 4);
-	if (ip == iarray + ARRAYSIZE)
-		cout << "50 not found in array" << endl;
-	else
-		cout << *ip << " found in array" << endl;
+    int iarray[ARRAYSIZE] = {1,23,4,54,32,6,8,2,6};
+    int* ip = find(iarray, iarray + ARRAYSIZE, 4);
+    if (ip == iarray + ARRAYSIZE)
+        cout << "50 not found in array" << endl;
+    else
+        cout << *ip << " found in array" << endl;
 }
 
 void exceptionTest()
 {
-	vector<int> a(10);
+    vector<int> a(10);
 
-	try{
-		a.at(12) = 3;
-	}catch(const std::out_of_range& oor){
-		std::cerr<<"range error\n";
-	}
+    try{
+        a.at(12) = 3;
+    }catch(const std::out_of_range& oor){
+        std::cerr<<"range error\n";
+    }
 }
 
 void pairTest()
 {
-	pair<int,float> ap(2,2.3);
+    pair<int,float> ap(2,2.3);
 }
 
 void swapTest()
 {
-	int a = 10;
-	int b = 3;
-	std::swap(a,b);
-	cout<<a<<","<<b<<endl;
+    int a = 10;
+    int b = 3;
+    std::swap(a,b);
+    cout<<a<<","<<b<<endl;
 }
 
 void iostreamTest()
@@ -188,13 +188,13 @@ void ConstFunctionTest()
 
 int main(int argc,char** argv)
 {
-	//ctypeTest()
-	//iterdemo();
+    //ctypeTest()
+    //iterdemo();
     //exceptionTest();
-	//pairTest();
+    //pairTest();
     //iostreamTest();
     //OperatorTest();
     ConstFunctionTest();
 
-	printf("success!\n");
+    printf("success!\n");
 }

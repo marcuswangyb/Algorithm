@@ -14,49 +14,49 @@ using namespace std;
 
 void setTest()
 {
-	set<int> sa;
-	sa.insert(23);
-	sa.insert(1);
-	sa.insert(42);
-	sa.insert(3);
-	sa.insert(42);
-	 
-	for(set<int>::iterator it = sa.begin();it != sa.end(); it++)
-	{
-		cout<<*it<<",";
-	}
-	cout<<endl;
+    set<int> sa;
+    sa.insert(23);
+    sa.insert(1);
+    sa.insert(42);
+    sa.insert(3);
+    sa.insert(42);
+     
+    for(set<int>::iterator it = sa.begin();it != sa.end(); it++)
+    {
+        cout<<*it<<",";
+    }
+    cout<<endl;
 
-	multiset<int> sa2;
-	sa2.insert(23);
-	sa2.insert(1);
-	sa2.insert(42);
-	sa2.insert(3);
-	sa2.insert(42);
+    multiset<int> sa2;
+    sa2.insert(23);
+    sa2.insert(1);
+    sa2.insert(42);
+    sa2.insert(3);
+    sa2.insert(42);
 
-	for(multiset<int>::iterator it = sa2.begin();it != sa2.end(); it++)
-	{
-		cout<<*it<<",";
-	}
-	cout<<endl;
+    for(multiset<int>::iterator it = sa2.begin();it != sa2.end(); it++)
+    {
+        cout<<*it<<",";
+    }
+    cout<<endl;
 }
 
 void bitsetTest()
 {
-	enum Color{red, yellow, green, blue, white, black, numColors};
+    enum Color{red, yellow, green, blue, white, black, numColors};
 
-	bitset<numColors> usedColors;
-	usedColors.set(red);
-	usedColors.set(blue);
-	cout << "bitfield of used colors:" << usedColors << endl;
-	cout << "number of used colors:" << usedColors.count() << endl;
-	cout << "bitfield of unused colors:" << ~usedColors << endl;
+    bitset<numColors> usedColors;
+    usedColors.set(red);
+    usedColors.set(blue);
+    cout << "bitfield of used colors:" << usedColors << endl;
+    cout << "number of used colors:" << usedColors.count() << endl;
+    cout << "bitfield of unused colors:" << ~usedColors << endl;
 
 
-	cout << "267 as binary short:" << bitset<numeric_limits<unsigned short>::digits>(267) << endl;
-	cout << "267 as binary long:" << bitset<numeric_limits<unsigned long>::digits>(267) << endl;
-	cout << "10,000,000 with 24 bis:" << bitset<24>(10000000) << endl;
-	cout << "1001011001:" << bitset<100>(string("1001011001")).to_ulong() << endl;
+    cout << "267 as binary short:" << bitset<numeric_limits<unsigned short>::digits>(267) << endl;
+    cout << "267 as binary long:" << bitset<numeric_limits<unsigned long>::digits>(267) << endl;
+    cout << "10,000,000 with 24 bis:" << bitset<24>(10000000) << endl;
+    cout << "1001011001:" << bitset<100>(string("1001011001")).to_ulong() << endl;
 }
 
 void lambdaTest()
@@ -195,12 +195,12 @@ void heapTest()
 int main(int argc,char** argv)
 {
     //bitsetTest();
-	//setTest();
+    //setTest();
     //lambdaTest();
     //inserterTest();
     //streamItTest();
 
     //bitsetTest();
     heapTest();
-	printf("success!\n");
+    printf("success!\n");
 }

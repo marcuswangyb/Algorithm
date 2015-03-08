@@ -30,5 +30,5 @@ void placementNewTest()
 int main(int argc,char** argv)
 {
     placementNewTest();
-	printf("success!\n");
+    printf("success!\n");
 }
