@@ -13,10 +13,8 @@
 using namespace std;
 
 /* ================================================================== */
-
+/*                       Basic Data Struct                            */
 /* ================================================================== */
-
-vector<string> StringSplit(string srcStr,string sepChar);
 
 struct TreeNode
 {
@@ -25,6 +23,12 @@ struct TreeNode
 	TreeNode *right;
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+/* ================================================================== */
+/*                        Tool Functions                              */
+/* ================================================================== */
+
+vector<string> StringSplit(string srcStr,string sepChar);
 
 bool IsDigitOrSharp(string str)
 {
@@ -123,7 +127,6 @@ void DestroyBinaryTree(TreeNode **root)
 	// TODO
 }
 
-
 void PreOrderTraversal(TreeNode * root){
 	if(root == NULL)
 		return;
@@ -142,25 +145,85 @@ void InOrderTraversal(TreeNode * root){
 	InOrderTraversal(root->right);
 }
 
-void PreOrderTraversal2(TreeNode * root){
-	stack<TreeNode*> s;
-    TreeNode *p=root;
-    while(p!=NULL||!s.empty())
-    {
-        while(p!=NULL)
-        {
+void PostOrderTraversal(TreeNode *root){
+	if(root == NULL) return;
+	PostOrderTraversal(root->left);
+	PostOrderTraversal(root->right);
+	printf("%d,",root->val);
+}
+
+void PreOrderTraversal2(TreeNode *root)
+{
+	if(root == NULL) return;
+	stack<TreeNode *> s;
+	TreeNode *p = root;
+	while(p!= NULL || !s.empty()){
+		while(p != NULL){
 			cout<<p->val<<" ";
+			s.push(p);
+			p = p->left;
+		}
+		while(p == NULL && !s.empty()){
+			p = s.top();
+			s.pop();
+			p = p->right;
+			if(p!= NULL) s.push(p);
+		}
+	}
+	cout<<endl;
+}
+
+void InOrderTraversal2(TreeNode *root)
+{
+	if(root == NULL) return;
+	stack<TreeNode*> s;
+    TreeNode *p = root;
+    while(p != NULL|| !s.empty())
+    {
+        while(p != NULL){
+			//cout<<p->val<<" ";
             s.push(p);
 			p=p->left;
         }
         if(!s.empty())
         {
             p=s.top();
+			cout<<p->val<<" ";
             s.pop();
 			p=p->right;
         }
     }
 }
+
+void PostOrderTraversal2(TreeNode * root){
+	if(root == NULL) return;
+	stack<pair<TreeNode*,int>> s;
+    TreeNode *p = root;
+    while(p != NULL|| !s.empty())
+    {
+        while(p != NULL){
+            s.push(make_pair(p,2));
+			p=p->left;
+        }
+        if(!s.empty())
+		{
+			pair<TreeNode*,int> cur = s.top();
+			p = cur.first;
+			if(cur.second == 2){
+				s.pop();
+				s.push(make_pair(p,1));
+				p = p->right;
+			}
+			else if(cur.second == 1){
+				s.pop();
+				cout<<p->val<<" ";
+				p = NULL;
+			}
+        }
+    }
+}
+
+
 
 vector<string> StringSplit(string srcStr,string sepChar)
 {
@@ -199,27 +262,6 @@ vector<string> StringSplit(string srcStr,string sepChar)
 
 void DevTest()
 {
-    /*int input[] = {2,4,5,1,8,4};
-    int len = 6;
-    MakeBinaryTree(input,len,&tree);*/
-	/*
-	vector<vector<int>> res2;
-	TreeNode *root2 = new TreeNode(3);
-	TreeNode *node2_1 = new TreeNode(9);
-	TreeNode *node2_2 = new TreeNode(20);
-	TreeNode *node2_3 = new TreeNode(15);
-	TreeNode *node2_4 = new TreeNode(7);
-	root2->left = node2_1;
-	root2->right = node2_2;
-	node2_2->left = node2_3;
-	node2_2->right = node2_4;
-
-	InOrderTraversal(root2);
-	cout<<endl;
-	PreOrderTraversal(root2);
-	cout<<endl;
-	*/
-
 	vector<string> cases;
 	cases.push_back("{a,sd}");
 	cases.push_back("xx");
@@ -232,6 +274,7 @@ void DevTest()
 	cases.push_back("{1,2,#,#,3,9}");
 	cases.push_back("{3,9,20,#,#,15,7}");
 	cases.push_back("{1,2,3,#,#,4,#,#,5}");
+	cases.push_back("{1,2,3,6,8,5,#,7,#,#,#,4}");
 	
 	for(int i = 0;i < cases.size(); i ++)
 	{
@@ -239,12 +282,10 @@ void DevTest()
 		bool ret = MakeBinaryTree(cases[i],tree);
 		printf("case \"%s\":%d\n",cases[i].c_str(),ret);
 		if(ret){
-			PreOrderTraversal(tree);
+			PostOrderTraversal(tree);
 			cout<<endl;
-			PreOrderTraversal2(tree);
+			PostOrderTraversal2(tree);
 			cout<<endl;
-			//InOrderTraversal(tree);
-			//cout<<endl;
 		}
 		cout<<endl;
 
