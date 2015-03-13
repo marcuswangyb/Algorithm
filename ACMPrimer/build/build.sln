@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "binsearch", "binsearch\bins
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "binarytree", "binarytree\binarytree.vcxproj", "{04A5D969-8B5F-44FB-AB51-ECCC9BE6431A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hanoi", "hanoi\hanoi.vcxproj", "{16568DF5-54E9-400D-8623-22AFF23133CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{04A5D969-8B5F-44FB-AB51-ECCC9BE6431A}.Debug|Win32.Build.0 = Debug|Win32
 		{04A5D969-8B5F-44FB-AB51-ECCC9BE6431A}.Release|Win32.ActiveCfg = Release|Win32
 		{04A5D969-8B5F-44FB-AB51-ECCC9BE6431A}.Release|Win32.Build.0 = Release|Win32
+		{16568DF5-54E9-400D-8623-22AFF23133CA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{16568DF5-54E9-400D-8623-22AFF23133CA}.Debug|Win32.Build.0 = Debug|Win32
+		{16568DF5-54E9-400D-8623-22AFF23133CA}.Release|Win32.ActiveCfg = Release|Win32
+		{16568DF5-54E9-400D-8623-22AFF23133CA}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
